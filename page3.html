@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ice Cream Shop</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #fff0f5;
+        }
+
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: pink;
+        }
+
+        .box {
+            width: 300px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 10px;
+            background-color: hotpink;
+            color: white;
+            border: none;
+        }
+    </style>
+
+    <script>
+        function calculateBill() {
+            var item = document.getElementById("item").value;
+            var qty = document.getElementById("qty").value;
+
+            var price = 0;
+
+            if(item == "Vanilla") price = 50;
+            if(item == "Chocolate") price = 60;
+            if(item == "Strawberry") price = 55;
+            if(item == "Mango") price = 70;
+            if(item == "Butterscotch") price = 65;
+
+            var total = price * qty;
+
+            document.getElementById("result").innerHTML =
+                "Total Bill: ₹ " + total;
+        }
+    </script>
+
+</head>
+<body>
+
+<h2>🍦 Ice Cream Parlour</h2>
+<!-- Menu Table -->
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Ice Cream</th>
+        <th>Price (₹)</th>
+    </tr>
+    <tr><td>1</td><td>Vanilla</td><td>50</td></tr>
+    <tr><td>2</td><td>Chocolate</td><td>60</td></tr>
+    <tr><td>3</td><td>Strawberry</td><td>55</td></tr>
+    <tr><td>4</td><td>Mango</td><td>70</td></tr>
+    <tr><td>5</td><td>Butterscotch</td><td>65</td></tr>
+</table>
+
+<!-- Order Form -->
+<div class="box">
+    <h3>Order Form</h3>
+
+    <form onsubmit="event.preventDefault(); calculateBill();">
+
+        <label>Name:</label><br>
+        <input type="text" required><br>
+
+        <label>Select Ice Cream:</label><br>
+        <select id="item">
+            <option>Vanilla</option>
+            <option>Chocolate</option>
+            <option>Strawberry</option>
+            <option>Mango</option>
+            <option>Butterscotch</option> </select><br>
+
+        <label>Quantity:</label><br>
+        <input type="number" id="qty" min="1" required><br>
+
+        <button type="submit">Calculate Bill</button> </form>
+        <h3 id="result"></h3>
+<a href="page4.html">Go to Page 2</a>
+
+</div>
+</body>
+</html>
